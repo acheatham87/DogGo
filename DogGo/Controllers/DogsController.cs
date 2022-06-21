@@ -7,12 +7,12 @@ using System;
 
 namespace DogGo.Controllers
 {
-    public class DogController : Controller
+    public class DogsController : Controller
     {
         private readonly IDogRepository _dogRepo;
 
         //ASP.NET will give us an instance of our Dog Repository.  This is called "Dependency Injection"
-        public DogController(IDogRepository dogRepository)
+        public DogsController(IDogRepository dogRepository)
         {
             _dogRepo = dogRepository;
         }
@@ -22,7 +22,7 @@ namespace DogGo.Controllers
         {
             List<Dog> dogs = _dogRepo.GetAllDogs();
 
-            return View();
+            return View(dogs);
         }
 
         // GET: DogController/Details/5
